@@ -1,0 +1,33 @@
+controller:
+  # Single replica for home lab
+  replicaCount: 1
+
+  # Use DaemonSet for K3S (better for small clusters)
+  kind: DaemonSet
+
+  # Bind directly to host network for port 80/443
+  hostNetwork: true
+
+  # Use host ports (required when hostNetwork is true)
+  hostPort:
+    enabled: true
+    ports:
+      http: 80
+      https: 443
+
+  # Service configuration for K3S
+  service:
+    type: LoadBalancer
+    enabled: true
+
+  # Disable autoscaling for home lab
+  autoscaling:
+    enabled: false
+
+  # Set as default ingress class
+  ingressClassResource:
+    default: true
+
+  # Metrics for monitoring (optional, can be removed if not needed)
+  metrics:
+    enabled: false

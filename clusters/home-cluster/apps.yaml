@@ -5,9 +5,14 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1m
-  path: ./apps/pihole
-  prune: true
+  retryInterval: 2m
+  timeout: 5m
+  dependsOn:
+    - name: ingress-nginx
+    - name: metallb
   sourceRef:
     kind: GitRepository
     name: flux-system
+  path: ./apps/pihole
+  prune: true
   wait: true
