@@ -25,9 +25,11 @@ spec:
             - containerPort: 53
               name: dns-tcp
               protocol: TCP
+              hostPort: 53
             - containerPort: 53
               name: dns-udp
               protocol: UDP
+              hostPort: 53
           livenessProbe:
             httpGet:
               path: /admin/

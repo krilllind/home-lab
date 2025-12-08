@@ -9,7 +9,6 @@ spec:
   timeout: 5m
   dependsOn:
     - name: ingress-nginx
-    - name: metallb
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -15,10 +15,9 @@ controller:
       http: 80
       https: 443
 
-  # Service configuration for K3S
+  # Disable service - using hostNetwork instead
   service:
-    type: LoadBalancer
-    enabled: true
+    enabled: false
 
   # Disable autoscaling for home lab
   autoscaling:

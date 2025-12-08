@@ -3,6 +3,11 @@ kind: Ingress
 metadata:
   name: pihole-ingress
   namespace: pihole
+  annotations:
+    # Redirect root to /admin for convenience
+    nginx.ingress.kubernetes.io/app-root: /admin
+    # Increase proxy buffer size for Pi-hole dashboard
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "8k"
 spec:
   ingressClassName: nginx
   rules:
