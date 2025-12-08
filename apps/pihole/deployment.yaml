@@ -21,6 +21,12 @@ spec:
           env:
             - name: TZ
               value: "Europe/Stockholm"
+            - name: FTLCONF_webserver_api_password
+              value: ""
+            - name: FTLCONF_dns_upstreams
+              value: "1.1.1.1;8.8.8.8"
+            - name: FTLCONF_dns_listeningMode
+              value: "all"
           ports:
             - containerPort: 80
               name: http
